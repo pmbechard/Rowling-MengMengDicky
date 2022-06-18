@@ -1,0 +1,138 @@
+:root {
+  --darkest: #ba55a8;
+  --dark: #eee;
+  --complementary: #e63946;
+  --light: #f4c4eb;
+  --lightest: #eee;
+
+  --winner: hidden;
+  --loser: hidden;
+  --message-size: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--lightest);
+  overflow: hidden;
+}
+
+header,
+.word-area {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  background-color: var(--darkest);
+  color: var(--lightest);
+}
+
+.word-area {
+  letter-spacing: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: var(--light);
+}
+
+.picture-area,
+.button-grid-area {
+  height: 39vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture-area {
+  background-color: var(--lightest);
+}
+
+.picture-area img {
+  height: 90%;
+  width: auto;
+  border: 1px solid black;
+  box-shadow: 1px 1px 3px rgb(111, 111, 111);
+}
+
+.button-grid-area {
+  background-color: var(--light);
+}
+
+.button-grid {
+  height: 90%;
+
+  display: grid;
+  grid-template: repeat(7, 1fr) / repeat(5, 1fr);
+}
+
+.button-grid button {
+  width: 15vw;
+  margin: 0.25vw;
+  font-weight: bold;
+  background-color: var(--dark);
+  color: black;
+  border: 2px solid var(--darkest);
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px black;
+}
+
+.button-grid button:disabled {
+  opacity: 0.5;
+}
+
+.picture-area::before {
+  content: 'You win!';
+  font-size: var(--message-size);
+  color: green;
+  transform: rotate(-15deg);
+  position: absolute;
+  visibility: var(--winner);
+}
+
+.picture-area::after {
+  content: 'You lose...';
+  font-size: var(--message-size);
+  color: red;
+  transform: rotate(-15deg);
+  position: absolute;
+  visibility: var(--loser);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark);
+  height: 2vh;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 450px) {
+  :root {
+    --message-size: 48px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  small {
+    font-size: 8px;
+  }
+}
